@@ -14,7 +14,7 @@ use parent qw/Catalyst/;
 use Catalyst qw/-Debug
                 ConfigLoader
                 Static::Simple
-                /;
+                +CatalystX::RedirectAfterLogin/;
 our $VERSION = '0.01';
 
 # Configure the application.

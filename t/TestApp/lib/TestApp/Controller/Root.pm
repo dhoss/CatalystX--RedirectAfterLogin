@@ -1,7 +1,7 @@
 package TestApp::Controller::Root;
 use Moose;
 use namespace::autoclean;
-BEGIN { extends 'CatalystX::Controller::RedirectAfterLogin'; }
+BEGIN { extends 'Catalyst::Controller'; }
 #
 # Sets the actions in this controller to be registered with no prefix
 # so they function identically to actions created in MyApp.pm
@@ -30,8 +30,8 @@ sub index : Path {
 }
 
 sub login : Local {
-    my ($self, $c, $username) = @_;
-    if ( $username eq 'blah' ) {
+    my ($self, $c) = @_;
+    if ( $c->req->param('username') eq 'blah' ) {
         $self->next_page(url=>'success');
     } else {
         $c->res->body('Failed!');
