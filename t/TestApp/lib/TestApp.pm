@@ -1,7 +1,5 @@
 package TestApp;
 
-
-
 use Catalyst::Runtime 5.80;
 
 # Set flags and add plugins for the application

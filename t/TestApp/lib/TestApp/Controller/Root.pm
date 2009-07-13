@@ -30,14 +30,14 @@ sub index : Path {
     $c->res->body('Fasdfasdfa');;
 }
 
-sub login : Path {
+sub login : Local {
     my ($self, $c, $username) = @_;
-    #if ( $username eq 'blah' ) {
-        $c->res->body('adsf!');#$c->next_page('success');
-   # } else {
+    if ( $username eq 'blah' ) {
+        $c->next_page('success');
+    } else {
         $c->res->body('Failed!');
         $c->detach;
-   # }
+    }
 }
 
 
