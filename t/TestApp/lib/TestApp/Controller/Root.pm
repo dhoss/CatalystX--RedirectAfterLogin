@@ -1,9 +1,8 @@
 package TestApp::Controller::Root;
-
-use strict;
-use warnings;
-use parent 'Catalyst::Controller';
-
+use Moose;
+use namespace::autoclean;
+BEGIN { extends 'Catalyst::Controller'; }
+with 'CatalystX::RedirectAfterLogin';
 #
 # Sets the actions in this controller to be registered with no prefix
 # so they function identically to actions created in MyApp.pm
@@ -26,17 +25,26 @@ TestApp::Controller::Root - Root Controller for TestApp
 
 =cut
 
-sub index :Path :Args(0) {
-    my ( $self, $c ) = @_;
-
-    # Hello World
-    $c->response->body( $c->welcome_message );
+sub index : Path {
+    my ($self, $c) = @_;
+    $c->res->body('Fasdfasdfa');;
 }
 
-sub default :Path {
-    my ( $self, $c ) = @_;
-    $c->response->body( 'Page not found' );
-    $c->response->status(404);
+sub login : Path {
+    my ($self, $c, $username) = @_;
+    #if ( $username eq 'blah' ) {
+        $c->res->body('adsf!');#$c->next_page('success');
+   # } else {
+        $c->res->body('Failed!');
+        $c->detach;
+   # }
+}
+
+
+sub success : Path {
+    my ($self, $c) = @_;
+    $c->res->body("Success!");
+
 }
 
 =head2 end
