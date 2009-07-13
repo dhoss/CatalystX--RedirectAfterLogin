@@ -1,4 +1,6 @@
 package CatalystX::RedirectAfterLogin;
+our $VERSION = '0.001';
+
 
 use Moose::Role;
 use namespace::autoclean;

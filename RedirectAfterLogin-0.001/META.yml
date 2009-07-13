@@ -1,0 +1,10 @@
+---
+abstract: redirect to the previous page after logging in
+author:
+- Devin Austin <dhoss@cpan.org>
+generated_by: Dist::Zilla::Plugin::MetaYaml version 1.091250
+license: perl
+name: RedirectAfterLogin
+requires:
+  Moose::Role: '0.087'
+version: '0.001'
