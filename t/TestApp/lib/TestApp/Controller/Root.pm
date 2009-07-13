@@ -33,7 +33,7 @@ sub index : Path {
 sub login : Local {
     my ($self, $c) = @_;
     if ( $c->req->param('username') eq 'blah' ) {
-        $c->next_page(url=>'success');
+        $c->next_page('success');
     } else {
         $c->res->body('Failed!');
         $c->detach;
